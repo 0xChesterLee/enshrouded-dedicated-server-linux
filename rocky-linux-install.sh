@@ -141,7 +141,8 @@ User=steam
 Group=steam
 Type=simple
 Restart=on-failure
-RestartSec=59s
+RestartSec=60
+TimeoutStartSec=300
 
 [Install]
 WantedBy=multi-user.target
