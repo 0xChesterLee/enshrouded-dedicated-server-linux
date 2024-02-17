@@ -135,8 +135,8 @@ Description=Enshrouded Server
 After=syslog.target network.target
 
 [Service]
-ExecStartPre=/bin/su --login steam -c '/home/steam/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/EnshroudedServer/ +login anonymous +app_update 2278520 validate +quit'
-ExecStart=/bin/su --login steam -c '/home/steam/EnshroudedServer/Start.sh'
+ExecStartPre=/home/steam/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/EnshroudedServer/ +login anonymous +app_update 2278520 validate +quit
+ExecStart=/home/steam/EnshroudedServer/Start.sh
 User=steam
 Group=steam
 Type=simple
@@ -146,8 +146,6 @@ RestartSec=59s
 [Install]
 WantedBy=multi-user.target
 EOF
-chown root:root /etc/systemd/system/enshrouded.service
-chmod u=rw,go=r /etc/systemd/system/enshrouded.service
 systemctl daemon-reload
 systemctl enable enshrouded.service
 
