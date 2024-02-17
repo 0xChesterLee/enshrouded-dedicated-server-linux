@@ -1,21 +1,18 @@
 #!/bin/bash
 
+# OS: Rocky Linux 9.3 (Minimal Install without GUI) - VM
+# LAN Port Open: TCP 22(SSH), TCP 9090(COCKPIT), TCP/UDP 15636, TCP/UDP 15637
+# WAN Port Forward: TCP/UDP 15636, TCP/UDP 15637
+
 # CHANGE YOUR OWN
-HOSTNAME="ENS01"
-FQDN="ENS01.CYBERLAB.HOST"
-ENSHROUDED_SERVER_NAME="CYBERLAB Server 1"
-ENSHROUDED_SERVER_PASSWORD="8888"
-ENSHROUDED_SERVER_MAXPLAYERS="16"
 ENSHROUDED_SERVER_GAMEPORT=15636
 ENSHROUDED_SERVER_QUERYPORT=15637
 
-# Enshrouded Hosting Server 01
-# OS: Rocky Linux 9.3 (Minimal Install without GUI) - VM
-# IPv4: 192.168.0.31/24
-# IPv6: Disabled
-# DNS: 8.8.8.8, 1.1.1.1
-# LAN Port Open: TCP 22(SSH), TCP 9090(COCKPIT), TCP/UDP 15636, TCP/UDP 15637
-# WAN Port Forward: TCP/UDP 15636, TCP/UDP 15637
+read -p "Please Enter Your Machine Host Name: " HOSTNAME
+read -p "Please Enter Your Machine FQDN or DDNS Name (Fully Qualified Domain Name): " FQDN
+read -p "Please Enter a Name of Your Enshrouded Server" ENSHROUDED_SERVER_NAME
+read -p "Please Input a Server Password: " ENSHROUDED_SERVER_PASSWORD
+read -p "Please Input a Max Player Count (Max.16): " ENSHROUDED_SERVER_MAXPLAYERS
 
 # Disable SELinux
 sed -i 's/SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
