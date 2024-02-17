@@ -49,7 +49,7 @@ cat <<EOF > /etc/hosts
 EOF
 
 # Install Packages
-dnf install -y telnet wget tar screen htop git curl nmap-ncat
+dnf install -y telnet wget tar screen htop curl nmap-ncat
 
 # Install Cockpit Web Console
 dnf install -y cockpit
@@ -62,7 +62,7 @@ systemctl disable --now firewalld
 # Install SteamCMD
 adduser steam
 echo -e "password\npassword" | passwd steam --stdin
-dnf install -y glibc.i686 libstdc++.i686 tmux screen
+dnf install -y glibc.i686 libstdc++.i686 tmux
 su - steam -c 'curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -'
 su - steam -c "/home/steam/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/EnshroudedServer/ +login anonymous +app_update 2278520 validate +quit"
 
