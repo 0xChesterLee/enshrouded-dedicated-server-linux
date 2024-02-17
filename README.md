@@ -1,6 +1,8 @@
 # enshrouded-dedicated-server-linux
 Run The Enshrouded Dedicated Server On Linux.
 
+HOW?
+
 1. Install Rocky Linux with Network Settings on your machine or VM with Minimal Install without GUI.
 2. Login with SSH with root.
 3. cd ~

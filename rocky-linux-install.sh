@@ -150,5 +150,7 @@ EOF
 systemctl daemon-reload
 systemctl enable enshrouded.service
 
+echo 'Done'
+
 # Reboot
 shutdown -r now
