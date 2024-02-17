@@ -10,7 +10,7 @@ ENSHROUDED_SERVER_QUERYPORT=15637
 
 read -p "Please Enter Your Machine Host Name: " HOSTNAME
 read -p "Please Enter Your Machine FQDN or DDNS Name (Fully Qualified Domain Name): " FQDN
-read -p "Please Enter a Name of Your Enshrouded Server" ENSHROUDED_SERVER_NAME
+read -p "Please Enter a Name of Your Enshrouded Server: " ENSHROUDED_SERVER_NAME
 read -p "Please Input a Server Password: " ENSHROUDED_SERVER_PASSWORD
 read -p "Please Input a Max Player Count (Max.16): " ENSHROUDED_SERVER_MAXPLAYERS
 
