@@ -6,6 +6,8 @@ FQDN="ENS01.CYBERLAB.HOST"
 ENSHROUDED_SERVER_NAME="CYBERLAB Server 1"
 ENSHROUDED_SERVER_PASSWORD="8888"
 ENSHROUDED_SERVER_MAXPLAYERS="16"
+ENSHROUDED_SERVER_GAMEPORT=15636
+ENSHROUDED_SERVER_QUERYPORT=15637
 
 # Enshrouded Hosting Server 01
 # OS: Rocky Linux 9.3 (Minimal Install without GUI) - VM
@@ -29,6 +31,7 @@ umount -f /home
 lvremove -f "/dev/mapper/rl_$(echo "$HOSTNAME" | awk '{print tolower($0)}')-home"
 lvextend -l +100%FREE "/dev/mapper/rl_$(echo "$HOSTNAME" | awk '{print tolower($0)}')-root"
 xfs_growfs /
+sed -i "s|^/dev/mapper/rl_.*-home|#&|" /etc/fstab
 
 # System Update
 dnf -y update
@@ -112,8 +115,8 @@ cat << EOF >> /home/steam/EnshroudedServer/enshrouded_server.json
     "saveDirectory": "./savegame",
     "logDirectory": "./logs",
     "ip": "0.0.0.0",
-    "gamePort": 15636,
-    "queryPort": 15637,
+    "gamePort": $(echo $ENSHROUDED_SERVER_GAMEPORT),
+    "queryPort": $(echo $ENSHROUDED_SERVER_QUERYPORT),
     "slotCount": $(echo $ENSHROUDED_SERVER_MAXPLAYERS)
 }
 EOF
